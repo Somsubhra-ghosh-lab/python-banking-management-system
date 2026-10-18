@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Open account | NexaBank{% endblock %}
+{% block content %}
+<div class="auth-layout">
+  <div class="auth-aside"><div class="eyebrow light">A BETTER WAY TO BANK</div><h1>Start with<br>a fresh page.</h1><p>Create a demo account in moments. Your account number is generated automatically.</p><div class="aside-decoration">N</div></div>
+  <div class="auth-panel"><div class="form-heading"><h2>Create your account</h2><p>It only takes a few details to get started.</p></div>
+    <form method="post" class="form">
+      <label>Full name<input type="text" name="full_name" placeholder="Your full name" required maxlength="100" autocomplete="name"></label>
+      <label>Email address<input type="email" name="email" placeholder="you@example.com" required maxlength="254" autocomplete="email"></label>
+      <label>Password<input type="password" name="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password"></label>
+      <button class="btn primary full" type="submit">Open demo account <span>→</span></button>
+    </form>
+    <p class="form-foot">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+  </div>
+</div>
+{% endblock %}

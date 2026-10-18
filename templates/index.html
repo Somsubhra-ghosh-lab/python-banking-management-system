@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}NexaBank | Simple digital banking{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR MONEY, MADE SIMPLE</div>
+    <h1>Banking that<br><span>moves with you.</span></h1>
+    <p class="hero-text">A clean, simple way to explore everyday banking. Manage your demo account, move funds, and keep track of every transaction in one place.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="{{ url_for('register') }}">Create free account <span>→</span></a>
+      <a class="btn secondary" href="{{ url_for('login') }}">I already have an account</a>
+    </div>
+    <div class="trust-row"><span>✓ Secure password hashing</span><span>✓ Clear transaction history</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="bank-card">
+      <div class="card-top"><span class="card-brand">Nexa<span>Bank</span></span><span class="chip">▦</span></div>
+      <div class="card-label">TOTAL BALANCE</div>
+      <div class="card-balance">₹ 24,850<span>.00</span></div>
+      <div class="card-number">•••• &nbsp; •••• &nbsp; •••• &nbsp; 2841</div>
+      <div class="card-bottom"><span>DEMO CUSTOMER</span><span>VISA <i>●</i></span></div>
+    </div>
+    <div class="float-pill"><span class="float-icon">↗</span><div><strong>Transfer complete</strong><small>Demo transaction · Just now</small></div><b>−₹1,200</b></div>
+    <div class="visual-note"><span class="note-dot"></span> Designed for everyday clarity</div>
+  </div>
+</section>
+<section class="feature-strip">
+  <div><span class="feature-icon">◈</span><strong>One clear dashboard</strong><small>See your account at a glance</small></div>
+  <div><span class="feature-icon">↔</span><strong>Easy transfers</strong><small>Move demo funds between users</small></div>
+  <div><span class="feature-icon">▤</span><strong>Full history</strong><small>Every transaction, in one place</small></div>
+</section>
+<div class="demo-notice"><strong>Student project demo:</strong> balances on this landing page are illustrative. Your registered account starts at ₹0.00. Use only test data.</div>
+{% endblock %}

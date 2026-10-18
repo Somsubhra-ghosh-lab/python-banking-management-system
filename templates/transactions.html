@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Transactions | NexaBank{% endblock %}
+{% block content %}
+<div class="page-heading"><div><div class="eyebrow">ACCOUNT ACTIVITY</div><h1>Transactions</h1><p>Account ending {{ account['account_number'][-4:] }} · All recorded activity</p></div><a class="btn primary" href="{{ url_for('transfer') }}">↗ &nbsp; Send money</a></div>
+<section class="section-card">
+{% if transactions %}
+<div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Date & time</th><th>Reference</th><th class="align-right">Amount</th></tr></thead><tbody>
+{% for tx in transactions %}
+<tr><td><span class="tx-icon {{ 'positive' if tx['transaction_type'] in ['DEPOSIT','TRANSFER_IN'] else 'negative' }}">{{ '↙' if tx['transaction_type'] in ['DEPOSIT','TRANSFER_IN'] else '↗' }}</span><span class="tx-name">{{ tx['description'] }}</span><small class="tx-type">{{ tx['transaction_type'].replace('_',' ').title() }}</small></td><td>{{ tx['created_at'].replace('T',' ') }}</td><td>{{ tx['related_account'] or '—' }}</td><td class="align-right {{ 'amount-positive' if tx['transaction_type'] in ['DEPOSIT','TRANSFER_IN'] else 'amount-negative' }}">{{ '+' if tx['transaction_type'] in ['DEPOSIT','TRANSFER_IN'] else '−' }}{{ tx['amount_cents']|money }}</td></tr>
+{% endfor %}
+</tbody></table></div>
+{% else %}<div class="empty-state"><div class="empty-icon">▤</div><strong>No transactions yet</strong><p>When you make a transaction, it will show up here.</p></div>{% endif %}
+</section>
+{% endblock %}

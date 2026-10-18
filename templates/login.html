@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Log in | NexaBank{% endblock %}
+{% block content %}
+<div class="auth-layout">
+  <div class="auth-aside"><div class="eyebrow light">WELCOME BACK</div><h1>Your finances,<br>in focus.</h1><p>Log in to manage your demo account and see your latest activity.</p><div class="aside-decoration">N</div></div>
+  <div class="auth-panel"><div class="form-heading"><h2>Log in to NexaBank</h2><p>Enter the details you used to register.</p></div>
+    <form method="post" class="form">
+      <label>Email address<input type="email" name="email" placeholder="you@example.com" required autocomplete="email"></label>
+      <label>Password<input type="password" name="password" placeholder="Enter your password" required autocomplete="current-password"></label>
+      <button class="btn primary full" type="submit">Log in <span>→</span></button>
+    </form>
+    <p class="form-foot">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+  </div>
+</div>
+{% endblock %}
